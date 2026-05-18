@@ -1,0 +1,2926 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supra Bike — Mobilidade Elétrica · Rio de Janeiro</title>
+<meta content="Supra Bike — Bicicletas, triciclos e scooters elétricas. Há mais de 15 anos no Rio de Janeiro com entrega montada, mecânica especializada e garantia." name="description"/>
+<link href="logo-suprabike.jpg" rel="icon" type="image/jpeg"/>
+<link href="logo-suprabike.jpg" rel="apple-touch-icon"/>
+<meta content="logo-suprabike.jpg" property="og:image"/>
+<meta content="Supra Bike — Mobilidade Elétrica · Rio de Janeiro" property="og:title"/>
+<meta content="Bicicletas, triciclos e scooters elétricas. Há mais de 15 anos no Rio de Janeiro." property="og:description"/>
+<meta content="#0B1F3D" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    /* Brand palette — extraída da logo */
+    --navy: #0B1F3D;          /* Azul marinho da logo - cor primária */
+    --navy-deep: #061330;     /* Versão mais escura para profundidade */
+    --navy-soft: #14305A;     /* Tom intermediário */
+    --red: #DC2626;           /* Vermelho da logo - acento */
+    --red-bright: #EF3340;
+    --red-deep: #B91C1C;
+    --white: #FFFFFF;
+    --off-white: #F8F9FB;     /* Off-white quente, evita branco puro */
+    --paper: #EFF1F5;
+    --line: #E2E5EC;
+    --ink: #0E1828;
+    --ink-soft: #475569;
+    --muted: #94A3B8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--off-white);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* ================================
+     UTILITY
+  ================================== */
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  .display {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+
+  /* ================================
+     TOP BAR
+  ================================== */
+  .topbar {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.85);
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .topbar-info {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .topbar-info span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .topbar-info svg { color: var(--red-bright); flex-shrink: 0; }
+  .topbar-social { display: flex; gap: 4px; }
+  .topbar-social a {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    color: rgba(255,255,255,0.6);
+    transition: color 0.2s;
+    border-radius: 6px;
+  }
+  .topbar-social a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+
+  /* ================================
+     NAVIGATION
+  ================================== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    padding: 14px 0;
+  }
+  .logo {
+    flex-shrink: 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  .logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(11, 31, 61, 0.18);
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+  }
+  .logo:hover img {
+    transform: scale(1.04);
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    transition: color 0.2s;
+    position: relative;
+    padding: 6px 0;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--red);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-cta:hover {
+    background: var(--red);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(220, 38, 38, 0.25);
+  }
+
+  /* ================================
+     HERO
+  ================================== */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0 100px;
+  }
+
+  /* Decorative grid pattern */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -300px;
+    right: -200px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 28px;
+    backdrop-filter: blur(10px);
+  }
+  .hero-tag .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--red-bright);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(239, 51, 64, 0.25);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+  }
+
+  .hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: clamp(44px, 6.5vw, 84px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 28px;
+    color: var(--white);
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--red-bright) 0%, var(--red) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+  }
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    bottom: 0.08em;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), transparent);
+  }
+
+  .hero-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 520px;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: all 0.3s cubic-bezier(.4,0,.2,1);
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .btn svg { transition: transform 0.3s; }
+  .btn:hover svg { transform: translateX(3px); }
+
+  .btn-red {
+    background: var(--red);
+    color: var(--white);
+    box-shadow: 0 12px 32px -8px rgba(220, 38, 38, 0.5);
+  }
+  .btn-red:hover {
+    background: var(--red-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px -8px rgba(220, 38, 38, 0.6);
+  }
+
+  .btn-ghost {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Hero stats */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: 480px;
+  }
+  .hero-stat-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .hero-stat-num span { color: var(--red-bright); }
+  .hero-stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* Hero image side */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    max-width: 540px;
+    margin-left: auto;
+  }
+  .hero-visual-circle {
+    position: absolute;
+    inset: 5%;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(220, 38, 38, 0.25) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    backdrop-filter: blur(20px);
+  }
+  .hero-visual-circle::before {
+    content: '';
+    position: absolute;
+    inset: 8%;
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    animation: rotate 60s linear infinite;
+  }
+  @keyframes rotate {
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-product {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 8%;
+  }
+  .hero-product img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.4));
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+  }
+
+  .float-tag {
+    position: absolute;
+    background: var(--white);
+    color: var(--navy);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 3;
+    animation: float 5s ease-in-out infinite;
+  }
+  .float-tag-1 {
+    top: 8%;
+    left: -4%;
+    animation-delay: 0.2s;
+  }
+  .float-tag-1 .icon { color: var(--red); }
+  .float-tag-2 {
+    bottom: 24%;
+    right: -8%;
+    animation-delay: 1.2s;
+  }
+  .float-tag-2 .icon { color: #10B981; }
+  .float-tag-3 {
+    bottom: 6%;
+    left: 5%;
+    background: var(--red);
+    color: var(--white);
+    animation-delay: 2.2s;
+  }
+  .float-tag-3 .icon { color: var(--white); }
+
+  /* ================================
+     MARQUEE
+  ================================== */
+  .marquee {
+    background: var(--white);
+    color: var(--navy);
+    padding: 22px 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 60px;
+    white-space: nowrap;
+    animation: scroll 35s linear infinite;
+  }
+  .marquee-item {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    color: var(--navy);
+  }
+  .marquee-item::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ================================
+     SECTION
+  ================================== */
+  section { padding: 110px 0; }
+
+  .section-head {
+    margin-bottom: 64px;
+    max-width: 800px;
+  }
+  .section-head.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .section-head.center .eyebrow {
+    justify-content: center;
+  }
+
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: clamp(34px, 4.5vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    margin: 16px 0;
+    color: var(--navy);
+  }
+  .section-title em {
+    font-style: normal;
+    color: var(--red);
+  }
+  .section-sub {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 580px;
+    line-height: 1.6;
+  }
+  .center .section-sub { margin: 0 auto; }
+
+  /* ================================
+     CATEGORIES
+  ================================== */
+  .categories {
+    background: var(--off-white);
+    position: relative;
+  }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .cat-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 36px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(.4,0,.2,1);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cat-card:hover {
+    border-color: var(--navy);
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -20px rgba(11, 31, 61, 0.18);
+  }
+  .cat-card .cat-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .cat-card .cat-num span { color: var(--red); }
+  .cat-card .cat-icon {
+    align-self: flex-end;
+    color: var(--navy);
+    margin: 12px 0;
+    transition: all 0.4s;
+  }
+  .cat-card:hover .cat-icon {
+    color: var(--red);
+    transform: rotate(-8deg) scale(1.1);
+  }
+  .cat-card h3 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 10px;
+    color: var(--navy);
+  }
+  .cat-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    line-height: 1.55;
+  }
+  .cat-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    transition: gap 0.3s;
+  }
+  .cat-card:hover .cat-arrow { gap: 14px; color: var(--red); }
+
+  /* ================================
+     PRODUCTS
+  ================================== */
+  .products {
+    background: var(--white);
+  }
+
+  .prod-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .prod-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: transparent;
+    border: 1.5px solid var(--line);
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--ink-soft);
+    transition: all 0.25s;
+    letter-spacing: 0;
+  }
+  .filter-btn:hover {
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+  .filter-btn.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  .prod-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .prod-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(.4,0,.2,1);
+    position: relative;
+  }
+  .prod-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--navy);
+    box-shadow: 0 28px 60px -22px rgba(11, 31, 61, 0.22);
+  }
+
+  .prod-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--red);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    z-index: 2;
+  }
+  .prod-badge.dark { background: var(--navy); }
+  .prod-badge.new { background: var(--ink); }
+
+  .prod-image {
+    aspect-ratio: 4 / 5;
+    background: var(--off-white);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 24px;
+    position: relative;
+  }
+  .prod-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(11,31,61,0.04) 0%, transparent 70%);
+  }
+  .prod-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+    position: relative;
+    z-index: 1;
+  }
+  .prod-card:hover .prod-image img { transform: scale(1.06); }
+
+  .prod-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+  .prod-meta {
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--red);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .prod-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: -4px;
+  }
+  .prod-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 2px;
+  }
+  .prod-spec {
+    font-size: 11px;
+    background: var(--paper);
+    color: var(--ink-soft);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  .prod-price-row {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .prod-price-old {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-bottom: 2px;
+  }
+  .prod-price-new {
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .prod-cta {
+    width: 36px;
+    height: 36px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: all 0.3s;
+    flex-shrink: 0;
+  }
+  .prod-card:hover .prod-cta {
+    background: var(--red);
+    transform: rotate(-45deg);
+  }
+
+  .prod-bottom {
+    text-align: center;
+    margin-top: 56px;
+  }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--navy);
+    padding: 16px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: 1.5px solid var(--navy);
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover {
+    background: var(--navy);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+  .btn-outline svg { transition: transform 0.3s; }
+  .btn-outline:hover svg { transform: translateX(3px); }
+
+  /* ================================
+     FEATURE STRIP
+  ================================== */
+  .features {
+    background: var(--navy);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .features::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+  }
+  .features::after {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .features .section-title { color: var(--white); }
+  .features .section-sub { color: rgba(255,255,255,0.7); }
+  .features .eyebrow { color: var(--red-bright); }
+  .features .eyebrow::before { background: var(--red-bright); }
+
+  .feat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .feat-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 32px 28px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .feat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .feat-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+  }
+  .feat-card:hover::before { transform: scaleX(1); }
+
+  .feat-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--red-bright);
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+  .feat-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--red);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .feat-card h3 {
+    font-family: 'Sora', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .feat-card p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.55;
+  }
+
+  /* ================================
+     ABOUT
+  ================================== */
+  .about { background: var(--off-white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--navy);
+    box-shadow: 0 30px 60px -20px rgba(11, 31, 61, 0.4);
+  }
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(220, 38, 38, 0.3) 0%, transparent 50%),
+      linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  }
+  .about-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .about-years {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 2;
+    color: var(--white);
+  }
+  .about-years .num {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 180px;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    display: block;
+    background: linear-gradient(135deg, var(--white) 30%, rgba(220,38,38,0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .about-years .lbl {
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    margin-top: 8px;
+    letter-spacing: 0.02em;
+  }
+  .about-badge {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 130px;
+    height: 130px;
+    border: 1px dashed rgba(255,255,255,0.4);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    z-index: 2;
+    animation: rotate 40s linear infinite;
+  }
+  .about-badge span {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+  }
+
+  .about-flag {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    background: var(--red);
+    color: var(--white);
+    padding: 14px 24px;
+    border-radius: 100px 0 0 100px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    z-index: 3;
+    box-shadow: 0 8px 24px -8px rgba(220, 38, 38, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .about-text h2 {
+    margin-bottom: 24px;
+  }
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+    padding-top: 36px;
+    border-top: 1px solid var(--line);
+  }
+  .about-stat .num {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .about-stat .num span { color: var(--red); }
+  .about-stat .lbl {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* ================================
+     SERVICES
+  ================================== */
+  .services { background: var(--white); }
+  .serv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .serv-card {
+    background: var(--off-white);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 48px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .serv-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--navy);
+    box-shadow: 0 30px 60px -22px rgba(11, 31, 61, 0.15);
+  }
+  .serv-card.dark {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+  .serv-card.dark .serv-list li::before { background: var(--red-bright); }
+  .serv-card.dark .serv-desc { color: rgba(255,255,255,0.75); }
+  .serv-card.dark .serv-icon { background: var(--red); }
+  .serv-card.dark::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.2) 0%, transparent 60%);
+  }
+
+  .serv-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 28px;
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+  }
+  .serv-card:hover .serv-icon { transform: rotate(-8deg) scale(1.08); }
+
+  .serv-card h3 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .serv-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+  }
+  .serv-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .serv-list li {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+  }
+  .serv-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ================================
+     SHOPEE
+  ================================== */
+  .shopee {
+    background: linear-gradient(135deg, #EE4D2D 0%, #FF6B35 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .shopee::before, .shopee::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+  .shopee::before {
+    width: 400px; height: 400px;
+    top: -150px; left: -100px;
+  }
+  .shopee::after {
+    width: 350px; height: 350px;
+    bottom: -150px; right: -80px;
+  }
+  .shopee-inner { position: relative; z-index: 2; }
+  .shopee h2 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: clamp(30px, 4vw, 44px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .shopee p {
+    font-size: 17px;
+    max-width: 600px;
+    margin: 0 auto 32px;
+    opacity: 0.95;
+  }
+  .shopee-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: #EE4D2D;
+    padding: 16px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+  .shopee-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.25);
+  }
+
+  /* ================================
+     CTA / CONTACT
+  ================================== */
+  .cta {
+    background: var(--navy);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.25) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(220, 38, 38, 0.15) 0%, transparent 50%);
+  }
+  .cta-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 80px 0;
+  }
+  .cta h2 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 5.5vw, 72px);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+  .cta h2 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--red-bright) 0%, var(--red) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .cta p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.75);
+    max-width: 580px;
+    margin: 0 auto 40px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: var(--white);
+    padding: 20px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-shadow: 0 16px 40px -10px rgba(37, 211, 102, 0.5);
+  }
+  .cta-btn:hover {
+    background: #1FB956;
+    transform: translateY(-3px);
+    box-shadow: 0 20px 48px -10px rgba(37, 211, 102, 0.65);
+  }
+  .cta-phone {
+    margin-top: 28px;
+    font-family: 'Sora', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--white);
+  }
+
+  /* ================================
+     FOOTER
+  ================================== */
+  footer {
+    background: var(--navy-deep);
+    color: var(--white);
+    padding: 56px 0 28px;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+  .foot-logo img {
+    height: 72px;
+    width: auto;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+    display: block;
+  }
+  .foot-brand p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    max-width: 340px;
+    margin-bottom: 28px;
+  }
+  .foot-social {
+    display: flex;
+    gap: 8px;
+  }
+  .foot-social a {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .foot-social a:hover {
+    background: var(--red);
+    border-color: var(--red);
+    transform: translateY(-3px);
+  }
+
+  .foot-col h4 {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red-bright);
+    margin-bottom: 22px;
+  }
+  .foot-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .foot-col a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .foot-col a:hover {
+    color: var(--white);
+    padding-left: 4px;
+  }
+  .foot-col p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+  .foot-col p strong {
+    color: var(--white);
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+
+  .foot-bottom {
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ================================
+     FLOATING WHATSAPP
+  ================================== */
+  .float-wpp {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45);
+    z-index: 99;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .float-wpp::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.4);
+    z-index: -1;
+    animation: ripple 2s ease-out infinite;
+  }
+  @keyframes ripple {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+  .float-wpp:hover { transform: scale(1.08); }
+
+
+
+  /* ================================
+     CUSTOM UPDATES — fotos reais, categorias com imagem e catálogo completo
+  ================================== */
+  .hero-offer-board {
+    position: relative;
+    width: min(620px, 100%);
+    margin-left: auto;
+    padding: 22px;
+    border-radius: 34px;
+    background: rgba(255,255,255,0.065);
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.28);
+    backdrop-filter: blur(18px);
+  }
+  .hero-offer-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: end;
+    margin-bottom: 18px;
+  }
+  .hero-offer-kicker {
+    color: var(--red-bright);
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .hero-offer-head h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(25px, 3vw, 36px);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-top: 5px;
+  }
+  .hero-offer-head a {
+    white-space: nowrap;
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.08);
+  }
+  .hero-offer-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-rows: 185px 185px;
+    gap: 14px;
+  }
+  .hero-offer-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--white);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+  }
+  .hero-offer-item:first-child { grid-row: span 2; }
+  .hero-offer-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+  }
+  .hero-offer-item:hover img { transform: scale(1.06); }
+  .hero-offer-label {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 11px 12px;
+    border-radius: 15px;
+    background: rgba(6,19,48,0.86);
+    color: var(--white);
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .hero-offer-label span {
+    display: block;
+    color: var(--red-bright);
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  .cat-card {
+    isolation: isolate;
+    min-height: 380px;
+    justify-content: flex-end;
+  }
+  .cat-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.50) 42%, rgba(255,255,255,0.88) 100%);
+    pointer-events: none;
+  }
+  .cat-photo {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    margin: 0;
+    border-radius: inherit;
+    background: var(--paper);
+    overflow: hidden;
+    display: block;
+  }
+  .cat-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+    opacity: 0.82;
+    filter: saturate(1.08) contrast(1.04);
+    transition: transform 0.5s cubic-bezier(.4,0,.2,1), opacity .3s;
+  }
+  .cat-card:hover .cat-photo img { transform: scale(1.07); opacity: 0.94; }
+  .cat-card .cat-icon { display: none; }
+  .cat-card .cat-num, .cat-card > div:last-child { position: relative; z-index: 1; }
+  .cat-card > div:last-child { background: rgba(255,255,255,0.74); border: 1px solid rgba(255,255,255,0.70); border-radius: 18px; padding: 18px; backdrop-filter: blur(3px); }
+  .cat-card:hover > div:last-child { background: rgba(255,255,255,0.82); }
+
+  .about-visual.photo {
+    aspect-ratio: 4 / 3;
+    background: var(--navy);
+  }
+  .about-visual.photo::before,
+  .about-visual.photo::after { display: none; }
+  .about-store-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.04) contrast(1.03);
+  }
+  .about-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(6,19,48,0.1) 0%, rgba(6,19,48,0.72) 100%);
+    pointer-events: none;
+  }
+  .about-visual.photo .about-years {
+    top: auto;
+    bottom: 38px;
+    left: 38px;
+  }
+  .about-visual.photo .about-years .num { font-size: 104px; }
+  .about-visual.photo .about-badge {
+    bottom: 36px;
+    right: 36px;
+    animation: none;
+    background: rgba(6,19,48,0.72);
+    backdrop-filter: blur(8px);
+  }
+  .catalog-note {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .catalog-note strong { color: var(--navy); }
+
+  @media (max-width: 720px) {
+    .hero-offer-board { padding: 16px; }
+    .hero-offer-head { align-items: start; flex-direction: column; }
+    .hero-offer-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .hero-offer-item, .hero-offer-item:first-child { grid-row: auto; height: 230px; }
+    .about-visual.photo .about-years .num { font-size: 78px; }
+  }
+
+  /* ================================
+     RESPONSIVE
+  ================================== */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 60px; }
+    .hero-visual { max-width: 480px; margin: 0 auto; }
+    .cat-grid { grid-template-columns: 1fr 1fr; }
+    .prod-grid { grid-template-columns: repeat(3, 1fr); }
+    .feat-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { grid-template-columns: 1fr; gap: 50px; }
+    .about-visual { max-width: 500px; margin: 0 auto; aspect-ratio: 1/1; }
+    .serv-grid { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    section { padding: 70px 0; }
+    .hero { padding: 50px 0 70px; }
+    .logo img { height: 44px; }
+    .topbar { font-size: 12px; }
+    .topbar-info { gap: 14px; }
+    .topbar-social { display: none; }
+    .hero h1 { font-size: clamp(38px, 10vw, 56px); }
+    .hero-desc { font-size: 16px; }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .hero-stat-num { font-size: 28px; }
+    .marquee-item { font-size: 16px; gap: 36px; }
+    .cat-grid { grid-template-columns: 1fr; }
+    .cat-card { min-height: auto; padding: 28px; }
+    .cat-card h3 { font-size: 24px; }
+    .prod-controls { flex-direction: column; align-items: stretch; }
+    .prod-sort { margin-left: 0; width: 100%; }
+    .sort-dropdown { min-width: 100%; }
+    .sort-actions { width: 100%; }
+    .sort-toggle { flex: 1; }
+    .sort-menu { left: 0; right: 0; }
+    .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .prod-name { font-size: 15px; }
+    .prod-price-new { font-size: 18px; }
+    .feat-grid { grid-template-columns: 1fr; }
+    .about-years .num { font-size: 120px; }
+    .serv-card { padding: 32px 24px; }
+    .serv-card h3 { font-size: 24px; }
+    .foot-grid { grid-template-columns: 1fr; gap: 36px; }
+    .foot-bottom { flex-direction: column; text-align: center; }
+    .cta-inner { padding: 60px 0; }
+    .section-head { margin-bottom: 44px; }
+    .float-tag { font-size: 11px; padding: 10px 14px; }
+    .float-tag-1 { top: 4%; left: -2%; }
+    .float-tag-2 { right: -4%; }
+    .about-flag { right: 0; padding: 10px 18px; font-size: 11px; }
+    footer { padding: 60px 0 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .prod-grid { grid-template-columns: 1fr; }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+  }
+
+
+  /* ================================
+     PRODUCT DETAIL PAGE INSIDE SITE
+  ================================== */
+  .prod-sort { margin-left:auto; position: relative; }
+  .sort-dropdown { min-width: 176px; }
+  .sort-toggle {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--red);
+    border: 1.5px solid var(--red);
+    color: var(--white);
+    padding: 12px 18px;
+    border-radius: 100px;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .25s;
+    box-shadow: 0 10px 24px -16px rgba(220,38,38,.7);
+  }
+  .sort-toggle:hover { background: var(--red-deep); border-color: var(--red-deep); transform: translateY(-1px); }
+  .sort-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 190px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 8px;
+    box-shadow: 0 22px 46px -22px rgba(11,31,61,.35);
+    z-index: 30;
+    display: none;
+  }
+  .sort-dropdown.open .sort-menu { display: grid; gap: 4px; }
+  .sort-option {
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    padding: 11px 12px;
+    border-radius: 10px;
+    text-align: left;
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .sort-option:hover, .sort-option.active { background: var(--navy); color: var(--white); }
+
+  .sort-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .clear-filter-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1.5px solid var(--line);
+    background: var(--white);
+    color: var(--navy);
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all .25s;
+    white-space: nowrap;
+  }
+  .clear-filter-btn:hover {
+    border-color: var(--red);
+    color: var(--red);
+    transform: translateY(-1px);
+  }
+  .sort-dropdown.open .clear-filter-btn,
+  .sort-dropdown.has-active-filter .clear-filter-btn {
+    display: inline-flex;
+  }
+  .prod-card { cursor: pointer; }
+  .product-detail { background: var(--off-white); padding: 90px 0 110px; }
+  .detail-back {
+    border: 0; background: var(--navy); color: var(--white); padding: 13px 20px; border-radius: 999px;
+    font-family: 'Sora', sans-serif; font-weight: 700; cursor: pointer; margin-bottom: 28px;
+  }
+  .detail-shell { display:grid; grid-template-columns: 1.05fr .95fr; gap:34px; align-items:start; }
+  .detail-gallery, .detail-info, .related-wrap {
+    background: var(--white); border: 1px solid var(--line); border-radius: 28px; box-shadow: 0 24px 60px -30px rgba(11,31,61,.22);
+  }
+  .detail-gallery { padding: 20px; }
+  .detail-main-image { aspect-ratio: 1 / 1; background: var(--paper); border-radius: 22px; overflow:hidden; display:grid; place-items:center; }
+  .detail-main-image img { width:100%; height:100%; object-fit:contain; display:block; }
+  .detail-thumbs { display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top:12px; }
+  .detail-thumb { aspect-ratio: 1.15 / 1; border: 2px solid transparent; border-radius: 14px; overflow:hidden; cursor:pointer; background:var(--paper); padding:0; }
+  .detail-thumb.active { border-color: var(--red); }
+  .detail-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+  .detail-info { padding: 34px; }
+  .detail-category { display:inline-flex; color:var(--red); text-transform:uppercase; letter-spacing:.12em; font-family:'Sora',sans-serif; font-size:12px; font-weight:800; margin-bottom:10px; }
+  .detail-info h2 { font-family:'Sora',sans-serif; font-size: clamp(34px,4vw,56px); color: var(--navy); line-height:1.02; letter-spacing:-.04em; margin-bottom:14px; }
+  .detail-info p { color: var(--ink-soft); font-size:16px; line-height:1.75; margin-bottom:20px; }
+  .detail-price-box { border:1px solid var(--line); background:linear-gradient(135deg,#fff,#f6f8fb); border-radius:22px; padding:22px; margin:20px 0; display:grid; gap:4px; }
+  .detail-old { color:var(--muted); text-decoration:line-through; font-weight:600; }
+  .detail-price { font-family:'Sora',sans-serif; font-size:36px; line-height:1; color:var(--red); letter-spacing:-.04em; }
+  .detail-offer { color:var(--ink-soft); font-size:13px; font-weight:700; }
+  .detail-actions { display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 24px; }
+  .detail-whatsapp, .detail-call { text-decoration:none; border-radius:999px; padding:15px 22px; font-family:'Sora',sans-serif; font-weight:800; font-size:14px; display:inline-flex; align-items:center; justify-content:center; }
+  .detail-whatsapp { background:#25D366; color:white; box-shadow:0 14px 32px -14px rgba(37,211,102,.8); }
+  .detail-call { color:var(--navy); border:1.5px solid var(--navy); }
+  .detail-spec-card { border-top:1px solid var(--line); padding-top:22px; }
+  .detail-spec-card h3, .related-wrap h3 { font-family:'Sora',sans-serif; color:var(--navy); font-size:22px; margin-bottom:16px; }
+  .detail-spec-card ul { columns:2; column-gap:22px; list-style:none; }
+  .detail-spec-card li { break-inside:avoid; margin-bottom:10px; color:var(--ink-soft); font-size:14px; padding-left:22px; position:relative; }
+  .detail-spec-card li::before { content:'✓'; position:absolute; left:0; color:var(--red); font-weight:900; }
+  .detail-note { margin-top:18px; padding:16px; border-radius:16px; background:var(--paper); color:var(--ink-soft); font-size:14px; }
+  .related-wrap { padding:28px; margin-top:30px; }
+  .related-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; }
+  .related-card { border:1px solid var(--line); border-radius:18px; overflow:hidden; background:white; text-decoration:none; color:var(--navy); cursor:pointer; transition:all .25s; }
+  .related-card:hover { transform:translateY(-3px); border-color:var(--navy); }
+  .related-card img { width:100%; aspect-ratio: 1.3/1; object-fit:cover; display:block; background:var(--paper); }
+  .related-card div { padding:12px; font-weight:800; font-family:'Sora',sans-serif; font-size:13px; }
+  .related-card span { display:block; color:var(--red); margin-top:4px; }
+  @media (max-width: 900px) {
+    .detail-shell { grid-template-columns:1fr; }
+    .related-grid { grid-template-columns: repeat(2,1fr); }
+    .detail-spec-card ul { columns:1; }
+  }
+  @media (max-width: 520px) {
+    .detail-info { padding:22px; }
+    .detail-actions { flex-direction:column; }
+    .related-grid { grid-template-columns:1fr; }
+  }
+
+
+
+  /* ===== AJUSTE PEDIDO: CTA menor + avaliações ===== */
+  .cta { padding: 0; }
+  .cta-inner {
+    text-align: left;
+    padding: 50px 0 54px;
+    display: grid;
+    grid-template-columns: minmax(360px, 0.95fr) minmax(360px, 1.05fr);
+    gap: 52px;
+    align-items: center;
+  }
+  .cta-content { text-align: center; max-width: 650px; justify-self: center; }
+  .cta h2 { font-size: clamp(36px, 4.8vw, 64px); }
+  .cta p { margin: 0 auto 30px; max-width: 620px; }
+  .reviews-box {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 12px;
+    max-width: 650px;
+  }
+  .reviews-kicker {
+    font-family: 'Sora', sans-serif;
+    color: var(--red-bright);
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .reviews-title {
+    font-family: 'Sora', sans-serif;
+    color: var(--white);
+    font-size: clamp(25px, 3vw, 38px);
+    line-height: 1.05;
+    letter-spacing: -.035em;
+    margin: 0 0 6px;
+  }
+  .review-card {
+    background: rgba(255,255,255,.075);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 18px;
+    padding: 16px 20px;
+    box-shadow: 0 18px 45px rgba(0,0,0,.16);
+  }
+  .review-stars { color: #FACC15; letter-spacing: .08em; font-size: 14px; margin-bottom: 8px; }
+  .review-card p { color: rgba(255,255,255,.84); font-size: 15px; line-height: 1.55; margin: 0 0 8px; max-width: none; }
+  .review-card strong { color: var(--white); font-size: 13px; }
+  .review-source { color: rgba(255,255,255,.50); font-size: 12px; margin-left: 6px; }
+  .review-note { color: rgba(255,255,255,.58); font-size: 12px; line-height: 1.5; }
+
+  .detail-thumbs { grid-template-columns: repeat(4, 1fr); }
+  .detail-main-image img { object-fit: cover; }
+  @media (max-width: 1024px) {
+    .cta-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+    .reviews-box { max-width: 760px; margin: 0 auto; text-align: left; }
+  }
+  @media (max-width: 720px) {
+    .cta-inner { padding: 42px 0 46px; }
+    .detail-thumbs { grid-template-columns: repeat(2, 1fr); }
+  }
+
+
+
+/* ===== AJUSTES SOLICITADOS: redes sociais no menu, sem faixa infinita, categorias mais visíveis ===== */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.nav-social-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-social-main a {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 14px rgba(11,31,61,0.08);
+  text-decoration: none;
+  transition: all .25s ease;
+}
+.nav-social-main a:hover {
+  color: var(--white);
+  background: var(--red);
+  border-color: var(--red);
+  transform: translateY(-2px);
+}
+
+
+/* faixa de loop infinito — contínua, sem pausa e sem buraco no ciclo */
+.marquee {
+  display: block !important;
+  background: var(--white);
+  color: var(--navy);
+  padding: 18px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  animation: marqueeInfinite 32s linear infinite;
+}
+.marquee-track:hover { animation-play-state: running; }
+.marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 60px;
+  padding-right: 60px;
+  white-space: nowrap;
+}
+.marquee-item {
+  flex: 0 0 auto;
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 60px;
+}
+.marquee-item::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  display: inline-block;
+}
+@keyframes marqueeInfinite {
+  0% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(-25%,0,0); }
+}
+
+/* categorias com foto mais visível e texto ainda legível */
+.cat-card {
+  min-height: 380px;
+  padding: 34px;
+  justify-content: flex-end;
+}
+.cat-card::before {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.18) 38%, rgba(255,255,255,0.70) 100%) !important;
+}
+.cat-photo img {
+  opacity: 1 !important;
+  filter: saturate(1.14) contrast(1.08) !important;
+}
+.cat-card:hover .cat-photo img { opacity: 1 !important; }
+.cat-card .cat-num {
+  position: absolute !important;
+  top: 22px;
+  left: 22px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.90);
+  border: 1px solid rgba(255,255,255,0.95);
+  box-shadow: 0 10px 24px rgba(11,31,61,0.16);
+  color: var(--navy) !important;
+  backdrop-filter: blur(6px);
+}
+.cat-card .cat-num span {
+  color: var(--red) !important;
+  font-weight: 800;
+}
+.cat-card > div:last-child {
+  max-width: 92%;
+  background: rgba(255,255,255,0.78) !important;
+  border: 1px solid rgba(255,255,255,0.92) !important;
+  box-shadow: 0 18px 40px rgba(11,31,61,0.12);
+  backdrop-filter: blur(8px) !important;
+}
+.cat-card h3,
+.cat-card p,
+.cat-arrow {
+  text-shadow: 0 1px 0 rgba(255,255,255,0.55);
+}
+@media (max-width: 1024px) {
+  .nav-actions { gap: 10px; }
+  .nav-social-main a { width: 34px; height: 34px; }
+}
+@media (max-width: 720px) {
+  .nav-social-main { display: none; }
+}
+
+/* ================================
+   MENU HAMBÚRGUER MOBILE (NOVO)
+================================== */
+.menu-toggle {
+  display: none;
+  background: var(--navy);
+  border: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+  transition: background 0.2s;
+}
+.menu-toggle:hover { background: var(--red); }
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Menu mobile expandido (overlay) */
+.nav-mobile-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  background: var(--navy);
+  z-index: 999;
+  padding: 90px 30px 30px;
+  transition: right 0.35s cubic-bezier(.4,0,.2,1);
+  box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+  overflow-y: auto;
+}
+.nav-mobile-panel.active { right: 0; }
+.nav-mobile-panel ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-mobile-panel a {
+  display: block;
+  padding: 14px 16px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.nav-mobile-panel a:hover { background: rgba(255,255,255,0.08); }
+.nav-mobile-panel .mobile-cta {
+  margin-top: 20px;
+  background: var(--red);
+  text-align: center;
+  font-weight: 600;
+}
+.nav-mobile-panel .mobile-cta:hover { background: var(--red-deep); }
+
+/* Overlay escuro atrás do menu */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Aplicar no mobile: esconder menu desktop, mostrar hambúrguer */
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .menu-toggle { display: flex; }
+}
+
+/* Placeholder (skeleton) enquanto imagens carregam - tira o "branco vazio" */
+.prod-card .prod-img,
+.cat-card .cat-img,
+.feat-card img {
+  background: linear-gradient(90deg, #e2e5ec 25%, #f0f2f6 50%, #e2e5ec 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+/* Quando a imagem termina de carregar, remove o efeito */
+img.loaded { animation: none; background: transparent; }
+
+</style>
+</head>
+<body>
+<!-- ====== TOP BAR ====== -->
+<div class="topbar">
+<div class="container topbar-inner">
+<div class="topbar-info">
+<span>
+<svg fill="none" height="13" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="13"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+        (21) 97254-9545
+      </span>
+<span>
+<svg fill="none" height="13" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        Praia de Mauá · Magé · Guapimirim
+      </span>
+</div>
+<div class="topbar-social">
+<a aria-label="Instagram" href="https://www.instagram.com/suprabike_/">
+<svg fill="none" height="15" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="15"><rect height="20" rx="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+</a>
+<a aria-label="Facebook" href="https://www.facebook.com/LojasSuprabike">
+<svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+</a>
+<a aria-label="YouTube" href="https://www.youtube.com/channel/UCES3eaz8rHLRwlv0ELCHCTw">
+<svg fill="currentColor" height="15" viewBox="0 0 24 24" width="15" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.7 15.5v-7l6 3.5-6 3.5Z"/></svg>
+</a>
+<a aria-label="TikTok" href="https://www.tiktok.com/@suprabike">
+<svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.42a8.16 8.16 0 005 1.55v-3.4a4.85 4.85 0 01-1.07-.18z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<!-- ====== NAVIGATION ====== -->
+<nav>
+<div class="container nav-inner">
+<a class="logo" href="#">
+<img alt="Supra Bike" src="imagens/logo.avif"/>
+</a>
+<ul class="nav-links">
+<li><a href="#categorias">Categorias</a></li>
+<li><a href="#produtos">Produtos</a></li>
+<li><a href="#sobre">Quem Somos</a></li>
+<li><a href="#servicos">Serviços</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+<div class="nav-actions">
+<div class="nav-social-main" aria-label="Redes sociais da Supra Bike">
+<a aria-label="Instagram" href="https://www.instagram.com/suprabike_/" target="_blank" rel="noopener">
+<svg fill="none" height="17" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="17"><rect height="20" rx="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+</a>
+<a aria-label="Facebook" href="https://www.facebook.com/LojasSuprabike" target="_blank" rel="noopener">
+<svg fill="currentColor" height="17" viewbox="0 0 24 24" width="17"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+</a>
+<a aria-label="YouTube" href="https://www.youtube.com/channel/UCES3eaz8rHLRwlv0ELCHCTw" target="_blank" rel="noopener">
+<svg fill="currentColor" height="18" viewBox="0 0 24 24" width="18" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.7 15.5v-7l6 3.5-6 3.5Z"/></svg>
+</a>
+<a aria-label="TikTok" href="https://www.tiktok.com/@suprabike" target="_blank" rel="noopener">
+<svg fill="currentColor" height="17" viewbox="0 0 24 24" width="17"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.42a8.16 8.16 0 005 1.55v-3.4a4.85 4.85 0 01-1.07-.18z"></path></svg>
+</a>
+</div>
+<a class="nav-cta" href="https://wa.me/5521972549545">
+<svg fill="currentColor" height="13" viewbox="0 0 24 24" width="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.570-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"></path></svg>
+      Fale Conosco
+    </a>
+<!-- Botão hambúrguer (só mobile) -->
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</nav>
+
+<!-- Overlay escuro do menu mobile -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Painel do menu mobile -->
+<aside class="nav-mobile-panel" id="navMobile">
+<ul>
+<li><a href="#categorias">Categorias</a></li>
+<li><a href="#produtos">Produtos</a></li>
+<li><a href="#sobre">Quem Somos</a></li>
+<li><a href="#servicos">Serviços</a></li>
+<li><a href="#contato">Contato</a></li>
+<li><a class="mobile-cta" href="https://wa.me/5521972549545">Fale Conosco no WhatsApp</a></li>
+</ul>
+</aside>
+<!-- ====== HERO ====== -->
+<section class="hero">
+<div class="container hero-inner">
+<div>
+<div class="hero-tag">
+<span class="dot"></span>
+        Mobilidade Elétrica · Rio de Janeiro
+      </div>
+<h1>
+        Sua liberdade<br/>
+        sobre duas<br/>
+        ou três <em>rodas.</em>
+</h1>
+<p class="hero-desc">
+        Bicicletas, triciclos e scooters elétricas com a qualidade Supra Bike. Entrega montada, mecânica especializada e suporte direto pelo WhatsApp.
+      </p>
+<div class="hero-ctas">
+<a class="btn btn-red" href="#produtos">
+          Ver catálogo
+          <svg fill="none" height="16" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+</a>
+<a class="btn btn-ghost" href="https://wa.me/5521972549545">
+<svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"></path></svg>
+          Atendimento WhatsApp
+        </a>
+</div>
+<div class="hero-stats">
+<div>
+<div class="hero-stat-num">15<span>+</span></div>
+<div class="hero-stat-label">Anos no mercado</div>
+</div>
+<div>
+<div class="hero-stat-num">3</div>
+<div class="hero-stat-label">Lojas no RJ</div>
+</div>
+<div>
+<div class="hero-stat-num">5K<span>+</span></div>
+<div class="hero-stat-label">Clientes felizes</div>
+</div>
+</div>
+</div>
+<div aria-label="Mercadorias em oferta da Supra Bike" class="hero-offer-board">
+<div class="hero-offer-head">
+<div>
+<div class="hero-offer-kicker">Ofertas da loja</div>
+<h2>Modelos reais em promoção</h2>
+</div>
+<a href="#produtos">Ver catálogo</a>
+</div>
+<div class="hero-offer-grid">
+<a class="hero-offer-item product-open" data-product-id="rufus-1000w" href="#produto-rufus-1000w">
+<img alt="Scooter Rufus 1000W em oferta" loading="lazy" src="imagens/oferta-rufus.avif"/>
+<div class="hero-offer-label">Rufus 1000W <span>R$ 10.990</span></div>
+</a>
+<a class="hero-offer-item product-open" data-product-id="duos-e-maxx" href="#produto-duos-e-maxx">
+<img alt="Bicicleta elétrica Duos E-Maxx em oferta" loading="lazy" src="imagens/oferta-duos.avif"/>
+<div class="hero-offer-label">Duos E-Maxx <span>R$ 5.399</span></div>
+</a>
+<a class="hero-offer-item product-open" data-product-id="mia-tri-1000w" href="#produto-mia-tri-1000w">
+<img alt="Triciclo elétrico Mia Tri 1000W em oferta" loading="lazy" src="imagens/oferta-mia-tri.avif"/>
+<div class="hero-offer-label">Mia Tri 1000W <span>R$ 12.990</span></div>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ====== MARQUEE / LOOP INFINITO ====== -->
+<div class="marquee" aria-label="Categorias e serviços Supra Bike">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <span class="marquee-item">Bicicletas Elétricas</span>
+      <span class="marquee-item">Triciclos Elétricos</span>
+      <span class="marquee-item">Scooters 1000W</span>
+      <span class="marquee-item">Mecânica Especializada</span>
+      <span class="marquee-item">Peças & Acessórios</span>
+      <span class="marquee-item">Entrega no RJ</span>
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      <span class="marquee-item">Bicicletas Elétricas</span>
+      <span class="marquee-item">Triciclos Elétricos</span>
+      <span class="marquee-item">Scooters 1000W</span>
+      <span class="marquee-item">Mecânica Especializada</span>
+      <span class="marquee-item">Peças & Acessórios</span>
+      <span class="marquee-item">Entrega no RJ</span>
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      <span class="marquee-item">Bicicletas Elétricas</span>
+      <span class="marquee-item">Triciclos Elétricos</span>
+      <span class="marquee-item">Scooters 1000W</span>
+      <span class="marquee-item">Mecânica Especializada</span>
+      <span class="marquee-item">Peças & Acessórios</span>
+      <span class="marquee-item">Entrega no RJ</span>
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      <span class="marquee-item">Bicicletas Elétricas</span>
+      <span class="marquee-item">Triciclos Elétricos</span>
+      <span class="marquee-item">Scooters 1000W</span>
+      <span class="marquee-item">Mecânica Especializada</span>
+      <span class="marquee-item">Peças & Acessórios</span>
+      <span class="marquee-item">Entrega no RJ</span>
+    </div>
+  </div>
+</div>
+<!-- ====== CATEGORIES ====== -->
+<section class="categories" id="categorias">
+<div class="container">
+<div class="section-head center">
+<span class="eyebrow">Categorias</span>
+<h2 class="section-title">Escolha sua <em>mobilidade</em></h2>
+<p class="section-sub">Três caminhos, uma só liberdade. Encontre o modelo perfeito para o seu dia a dia.</p>
+</div>
+<div class="cat-grid">
+<a aria-label="Ver modelos de Bicicletas" class="cat-card" data-category-filter="bicicleta" href="#produtos">
+<div class="cat-num"><span>01</span> · Bikes</div>
+<div class="cat-photo"><img alt="Bicicleta elétrica Supra Bike" loading="lazy" src="imagens/categoria-bikes.avif"/></div>
+<div class="cat-icon">
+<svg fill="none" height="48" viewbox="0 0 80 56" width="68">
+<circle cx="14" cy="42" r="12" stroke="currentColor" stroke-width="2.5"></circle>
+<circle cx="66" cy="42" r="12" stroke="currentColor" stroke-width="2.5"></circle>
+<path d="M14 42 L 40 14 L 66 42 M 14 42 L 52 18" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<rect fill="currentColor" height="6" rx="1" width="14" x="36" y="22"></rect>
+</svg>
+</div>
+<div>
+<h3>Bicicletas Elétricas</h3>
+<p>Pedale com autonomia e potência. Modelos urbanos com até 1000W para o dia a dia.</p>
+<span class="cat-arrow">Ver modelos
+            <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+</span>
+</div>
+</a>
+<a aria-label="Ver modelos de Triciclos" class="cat-card" data-category-filter="triciclo" href="#produtos">
+<div class="cat-num"><span>02</span> · Triciclos</div>
+<div class="cat-photo"><img alt="Triciclo elétrico Supra Bike" loading="lazy" src="imagens/categoria-triciclos.avif"/></div>
+<div class="cat-icon">
+<svg fill="none" height="48" viewbox="0 0 80 56" width="68">
+<circle cx="14" cy="46" r="10" stroke="currentColor" stroke-width="2.5"></circle>
+<circle cx="66" cy="46" r="10" stroke="currentColor" stroke-width="2.5"></circle>
+<rect height="20" rx="3" stroke="currentColor" stroke-width="2.5" width="30" x="26" y="20"></rect>
+<path d="M 26 20 L 35 6 L 48 8" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="40" cy="52" r="6" stroke="currentColor" stroke-width="2.5"></circle>
+</svg>
+</div>
+<div>
+<h3>Triciclos Elétricos</h3>
+<p>Mais estabilidade e capacidade. Ideal para todas as idades, até 3 passageiros.</p>
+<span class="cat-arrow">Ver modelos
+            <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+</span>
+</div>
+</a>
+<a aria-label="Ver modelos de Scooters" class="cat-card" data-category-filter="scooter" href="#produtos">
+<div class="cat-num"><span>03</span> · Scooters</div>
+<div class="cat-photo"><img alt="Scooter elétrica Supra Bike" loading="lazy" src="imagens/categoria-scooters.avif"/></div>
+<div class="cat-icon">
+<svg fill="none" height="48" viewbox="0 0 80 56" width="68">
+<circle cx="14" cy="46" r="10" stroke="currentColor" stroke-width="2.5"></circle>
+<circle cx="64" cy="46" r="10" stroke="currentColor" stroke-width="2.5"></circle>
+<path d="M 14 46 L 26 26 L 56 26 L 64 46" stroke="currentColor" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M 30 26 L 34 6 L 48 4" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<rect fill="currentColor" height="10" rx="1" width="22" x="28" y="28"></rect>
+</svg>
+</div>
+<div>
+<h3>Scooters Elétricas</h3>
+<p>Potência de até 1000W. Velocidade, conforto e baú duplo para longas distâncias.</p>
+<span class="cat-arrow">Ver modelos
+            <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- ====== PRODUCTS ====== -->
+<section class="products" id="produtos">
+<div class="container">
+<div class="section-head center">
+<span class="eyebrow">Catálogo completo</span>
+<h2 class="section-title">Todos os <em>modelos da loja</em></h2>
+<p class="section-sub">Catálogo completo com as ofertas atuais da Supra Bike: bicicletas, triciclos e scooters elétricas.</p>
+</div>
+<div class="prod-controls">
+<div class="prod-filters">
+<button class="filter-btn active" data-filter="all">Todos</button>
+<button class="filter-btn" data-filter="bicicleta">Bicicletas</button>
+<button class="filter-btn" data-filter="triciclo">Triciclos</button>
+<button class="filter-btn" data-filter="scooter">Scooters</button>
+</div>
+<div class="prod-sort sort-dropdown" id="sortDropdown">
+<div class="sort-actions">
+<button class="sort-toggle" id="sortToggle" type="button" aria-haspopup="true" aria-expanded="false">
+<span id="sortLabel">Ordenar por</span>
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<button class="clear-filter-btn" id="clearFilters" type="button">Limpar filtro</button>
+</div>
+<div class="sort-menu" id="sortMenu" role="menu">
+<button class="sort-option" type="button" data-sort="best-sellers" role="menuitem">Mais vendidos</button>
+<button class="sort-option" type="button" data-sort="price-asc" role="menuitem">Menor preço</button>
+<button class="sort-option" type="button" data-sort="price-desc" role="menuitem">Maior preço</button>
+</div>
+</div>
+</div>
+<div class="prod-grid" id="productGrid"></div>
+</div>
+</section>
+<section class="product-detail" hidden="" id="produto-detalhe">
+<div class="container">
+<button class="detail-back" id="detailBack" type="button">← Voltar ao catálogo</button>
+<div class="detail-shell">
+<div class="detail-gallery">
+<div class="detail-main-image"><img alt="" id="detailMainImg" src=""/></div>
+<div class="detail-thumbs" id="detailThumbs"></div>
+</div>
+<div class="detail-info">
+<span class="detail-category" id="detailCategory"></span>
+<h2 id="detailTitle"></h2>
+<p id="detailDesc"></p>
+<div class="detail-price-box">
+<span class="detail-old" id="detailOld"></span>
+<strong class="detail-price" id="detailPrice"></strong>
+<span class="detail-offer">Oferta atual da loja</span>
+</div>
+<div class="detail-actions">
+<a class="detail-whatsapp" href="#" id="detailWhatsapp" rel="noopener" target="_blank">Comprar pelo WhatsApp</a>
+<a class="detail-call" href="https://wa.me/5521972549545" rel="noopener" target="_blank">Tirar dúvida</a>
+</div>
+<div class="detail-spec-card">
+<h3>Especificações técnicas</h3>
+<ul id="detailSpecs"></ul>
+</div>
+<div class="detail-note">
+<strong>Entrega:</strong> no momento a equipe entrega somente no estado do Rio de Janeiro. O produto é entregue montado e com orientação técnica.
+        </div>
+</div>
+</div>
+<div class="related-wrap">
+<h3>Produtos relacionados</h3>
+<div class="related-grid" id="relatedGrid"></div>
+</div>
+</div>
+</section>
+<!-- ====== FEATURES ====== -->
+<section class="features">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Vantagens</span>
+<h2 class="section-title">Por que escolher<br/>a Supra Bike</h2>
+</div>
+<div class="feat-grid">
+<div class="feat-card">
+<div class="feat-num">01 / Economia</div>
+<div class="feat-icon">
+<svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="22"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg>
+</div>
+<h3>Economia real</h3>
+<p>Esqueça gasolina e passagens. Recarga completa por centavos por dia.</p>
+</div>
+<div class="feat-card">
+<div class="feat-num">02 / Entrega</div>
+<div class="feat-icon">
+<svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="22"><rect height="13" width="15" x="1" y="3"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+</div>
+<h3>Entrega montada</h3>
+<p>Veículo chega pronto para uso, com técnico para orientação inicial.</p>
+</div>
+<div class="feat-card">
+<div class="feat-num">03 / Liberdade</div>
+<div class="feat-icon">
+<svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="22"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+</div>
+<h3>Liberdade total</h3>
+<p>Sem trânsito, sem horário de ônibus, sem depender de transporte público.</p>
+</div>
+<div class="feat-card">
+<div class="feat-num">04 / Garantia</div>
+<div class="feat-icon">
+<svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="22"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"></path></svg>
+</div>
+<h3>Garantia &amp; suporte</h3>
+<p>Mecânica especializada própria e 3 meses de garantia em todas as peças.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ====== ABOUT ====== -->
+<section class="about" id="sobre">
+<div class="container">
+<div class="about-grid">
+<div class="about-visual photo">
+<img alt="Foto da loja Supra Bike em Magé" class="about-store-photo" loading="lazy" src="imagens/loja-mage.avif"/>
+<div class="about-photo-overlay"></div>
+<div class="about-years">
+<div class="num">15+</div>
+<div class="lbl">ANOS NO RIO DE JANEIRO</div>
+</div>
+<div class="about-flag">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          MAGÉ · RJ
+        </div>
+<div class="about-badge">
+<span>MOBILIDADE<br/>SUSTENTÁVEL</span>
+</div>
+</div>
+<div class="about-text">
+<span class="eyebrow">Quem somos</span>
+<h2 class="section-title">Somos a <em>Supra Bike</em></h2>
+<p>
+          Há mais de 15 anos no mercado, levamos soluções sustentáveis e mobilidade urbana para todo o Rio de Janeiro. Nossa sede está situada na <strong style="color: var(--navy);">Estrada Real de Mauá, 739, em Magé</strong>, e também contamos com <strong style="color: var(--navy);">filiais nas cidades de Magé e Guapimirim</strong> para atender você mais de perto.
+        </p>
+<p>
+          Temos orgulho de ser conhecidos pelo nosso atendimento próximo e seriedade com nossos clientes. Nosso propósito é levar mobilidade elétrica de forma sustentável e acessível para o maior número de pessoas.
+        </p>
+<div class="about-stats">
+<div class="about-stat">
+<div class="num">15<span>+</span></div>
+<div class="lbl">Anos de mercado</div>
+</div>
+<div class="about-stat">
+<div class="num">3</div>
+<div class="lbl">Lojas físicas</div>
+</div>
+<div class="about-stat">
+<div class="num">5K<span>+</span></div>
+<div class="lbl">Clientes felizes</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ====== SERVICES ====== -->
+<section class="services" id="servicos">
+<div class="container">
+<div class="section-head center">
+<span class="eyebrow">Serviços</span>
+<h2 class="section-title">Muito além da <em>venda</em></h2>
+<p class="section-sub">Comprou aqui, tem suporte aqui. Entrega, manutenção e peças com quem entende do assunto.</p>
+</div>
+<div class="serv-grid">
+<div class="serv-card">
+<div class="serv-icon">
+<svg fill="none" height="28" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="28"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"></path></svg>
+</div>
+<h3 style="color: var(--navy);">Mecânica especializada</h3>
+<p class="serv-desc">Conhecemos cada modelo que vendemos. Manutenção rápida e correta, sem improvisos, com técnicos treinados.</p>
+<ul class="serv-list">
+<li>Revisão preventiva completa</li>
+<li>Reparo elétrico e mecânico</li>
+<li>Peças de reposição originais</li>
+<li>Garantia de 3 meses em peças</li>
+</ul>
+</div>
+<div class="serv-card dark">
+<div class="serv-icon">
+<svg fill="none" height="28" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="28"><rect height="13" width="15" x="1" y="3"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+</div>
+<h3 style="color: var(--white);">Entrega em todo RJ</h3>
+<p class="serv-desc">Seu veículo elétrico chega montado e pronto para uso, com orientação técnica detalhada no momento da entrega.</p>
+<ul class="serv-list">
+<li>Veículo montado e testado</li>
+<li>Técnico no local para orientação</li>
+<li>Cobertura em todo Rio de Janeiro</li>
+<li>Consulta de frete pelo WhatsApp</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- ====== SHOPEE ====== -->
+<section class="shopee">
+<div class="container shopee-inner">
+<h2>Peças e acessórios na nossa Shopee</h2>
+<p>Capa de proteção para chuva, lubrificantes, suportes e muito mais. Tudo para sua bicicleta, triciclo ou scooter elétrica.</p>
+<a class="shopee-btn" href="https://shopee.com.br/lojasuprabike">
+<svg fill="none" height="18" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="18"><path d="M6 2l1 4h10l1-4M3 7l1.5 13h15L21 7H3M9 11v5M15 11v5"></path></svg>
+      Visitar Loja na Shopee
+    </a>
+</div>
+</section>
+<!-- ====== CTA ====== -->
+<section class="cta" id="contato">
+<div class="container cta-inner">
+  <div class="reviews-box" aria-label="Avaliações de clientes Supra Bike">
+    <span class="reviews-kicker">Avaliações da loja</span>
+    <h3 class="reviews-title">Avaliações positivas de clientes Supra Bike.</h3>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p>“A loja é excelente. Venham comprar essa bicicleta, vale a pena.”</p>
+      <strong>Cliente Supra Bike</strong><span class="review-source">· relato público</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p>“O atendimento foi excelente, fui muito bem recebida.”</p>
+      <strong>Cliente Supra Bike</strong><span class="review-source">· relato público</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p>“Atendimento e atenção maravilhosos.”</p>
+      <strong>Cliente Supra Bike</strong><span class="review-source">· relato público</span>
+    </div>
+    <span class="review-note">Relatos públicos de clientes encontrados online.</span>
+  </div>
+  <div class="cta-content">
+    <h2>Sua liberdade<br/>começa <em>agora.</em></h2>
+    <p>Atendimento personalizado pelo WhatsApp. Tire dúvidas, conheça modelos e receba uma cotação na hora.</p>
+    <a class="cta-btn" href="https://wa.me/5521972549545">
+      <svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"></path></svg>
+      Falar pelo WhatsApp
+    </a>
+    <div class="cta-phone">(21) 97254-9545</div>
+  </div>
+</div>
+</section>
+<!-- ====== FOOTER ====== -->
+<footer>
+<div class="container">
+<div class="foot-grid">
+<div class="foot-brand">
+<div class="foot-logo">
+<img alt="Supra Bike" src="imagens/logo.avif"/>
+</div>
+<p>Loja de bicicletas, triciclos e scooters elétricas no Rio de Janeiro. Mobilidade elétrica acessível há mais de 15 anos.</p>
+<div class="foot-social">
+<a aria-label="Instagram" href="https://www.instagram.com/suprabike_/">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="20" rx="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+</a>
+<a aria-label="Facebook" href="https://www.facebook.com/LojasSuprabike">
+<svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+</a>
+<a aria-label="YouTube" href="https://www.youtube.com/channel/UCES3eaz8rHLRwlv0ELCHCTw">
+<svg fill="currentColor" height="16" viewBox="0 0 24 24" width="16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.7 15.5v-7l6 3.5-6 3.5Z"/></svg>
+</a>
+<a aria-label="TikTok" href="https://www.tiktok.com/@suprabike">
+<svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.42a8.16 8.16 0 005 1.55v-3.4a4.85 4.85 0 01-1.07-.18z"></path></svg>
+</a>
+</div>
+</div>
+<div class="foot-col">
+<h4>Navegação</h4>
+<ul>
+<li><a href="#categorias">Categorias</a></li>
+<li><a href="#produtos">Produtos</a></li>
+<li><a href="#sobre">Quem somos</a></li>
+<li><a href="#servicos">Serviços</a></li>
+<li><a href="https://shopee.com.br/lojasuprabike">Loja Shopee</a></li>
+</ul>
+</div>
+<div class="foot-col">
+<h4>Contato</h4>
+<ul>
+<li><a href="https://wa.me/5521972549545">(21) 97254-9545</a></li>
+<li><a href="https://wa.me/5521995507788">(21) 99550-7788</a></li>
+<li><a href="mailto:suprabikesuporte@gmail.com">suprabikesuporte@gmail.com</a></li>
+</ul>
+<h4 style="margin-top: 28px;">Atendimento</h4>
+<p>Segunda a sábado · 8h às 18h</p>
+</div>
+<div class="foot-col">
+<h4>Localização</h4>
+<p><strong>Sede</strong>Estrada Real de Mauá, 739<br/>Praia de Mauá, Magé/RJ</p>
+<p style="margin-top: 16px;"><strong>Filiais</strong>Magé · Guapimirim</p>
+</div>
+</div>
+<div class="foot-bottom">
+<div>© 2026 Supra Bike Ltda. — Todos os direitos reservados.</div>
+<div>Mobilidade elétrica sustentável · Rio de Janeiro</div>
+</div>
+</div>
+</footer>
+<!-- ====== FLOATING WHATSAPP ====== -->
+<a aria-label="WhatsApp" class="float-wpp" href="https://wa.me/5521972549545">
+<svg fill="white" height="30" viewbox="0 0 24 24" width="30"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"></path></svg>
+</a>
+<script>
+  const PRODUCTS = [{"id":"duos-e-maxx","name":"Duos E-Maxx","cat":"bicicleta","meta":"Bicicleta Elétrica","img":"imagens/duos-e-maxx1.png","alt":"Duos E-Maxx","specs":["800W","35km","Aro 24"],"old":"R$ 6.199","price":"R$ 5.399","price_num":5399,"old_num":6199,"rank":1,"details":["Alarme de fábrica","Buzina","Farol em LED","Setas em LED","Retrovisores","Cesta","32km/h de velocidade","35km de autonomia","03 níveis de velocidade","Suporte para celular","Conector USB","Aro 24","Motor 800W"],"desc":"A Duos E-Maxx é uma bicicleta elétrica para uso urbano, com foco em economia, praticidade e autonomia para o dia a dia. Ideal para quem quer sair do transporte público e circular com mais liberdade.","gallery":["imagens/duos-e-maxx1.png","imagens/duos-e-maxx2.png","imagens/duos-e-maxx3.png","imagens/duos-e-maxx4.png","imagens/duos-e-maxx5.png","imagens/duos-e-maxx6.png","imagens/duos-e-maxx7.png","imagens/duos-e-maxx8.png","imagens/duos-e-maxx9.png","imagens/duos-e-maxx10.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Duos%20E-Maxx%20%28R%24%205.399%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"mc-pop","name":"Mc Pop","cat":"bicicleta","meta":"Bicicleta Elétrica","img":"imagens/mc-pop1.avif","alt":"Mc Pop","specs":["35km","Sistema de ré","Aro 24"],"old":"R$ 6.199","price":"R$ 5.599","price_num":5599,"old_num":6199,"rank":2,"details":["Alarme de fábrica","Buzina","Farol em LED","Setas em LED","Retrovisores","Cesta","32km/h de velocidade","35km de autonomia","03 níveis de velocidade","Suporte para celular","Conector USB","Sistema de ré","Aro 24"],"desc":"A Mc Pop é uma bicicleta elétrica para uso urbano, com foco em economia, praticidade e autonomia para o dia a dia. Ideal para quem quer sair do transporte público e circular com mais liberdade.","gallery":["imagens/mc-pop1.avif","imagens/mc-pop2.avif","imagens/mc-pop3.avif","imagens/mc-pop4.avif","imagens/mc-pop5.avif","imagens/mc-pop6.avif"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Mc%20Pop%20%28R%24%205.599%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"trixx-1000w","name":"Trixx 1000W","cat":"bicicleta","meta":"Bicicleta Elétrica","img":"imagens/trixx-1000w1.png","alt":"Trixx 1000W","specs":["1000W","35km/h","Aro 14"],"old":"R$ 7.799","price":"R$ 5.999","price_num":5999,"old_num":7799,"rank":3,"details":["Alarme de fábrica","Buzina","Farol em LED","Setas em LED","Retrovisores","Cesta","35km/h de velocidade","35km de autonomia","03 níveis de velocidade","Suporte para celular","Conector USB","Aro 14"],"desc":"A Trixx 1000W é uma bicicleta elétrica para uso urbano, com foco em economia, praticidade e autonomia para o dia a dia. Ideal para quem quer sair do transporte público e circular com mais liberdade.","gallery":["imagens/trixx-1000w1.png","imagens/trixx-1000w2.png","imagens/trixx-1000w3.png","imagens/trixx-1000w4.png","imagens/trixx-1000w5.png","imagens/trixx-1000w6.png","imagens/trixx-1000w7.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Trixx%201000W%20%28R%24%205.999%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"mia-tri-1000w","name":"Mia Tri 1000W","cat":"triciclo","meta":"Triciclo Elétrico","img":"imagens/mia-tri-1000w1.png","alt":"Mia Tri 1000W","specs":["1000W","40km","3 pass."],"old":"R$ 15.190","price":"R$ 12.990","price_num":12990,"old_num":15190,"rank":4,"details":["Bateria de lítio removível","Alarme de fábrica","Suporte de celular","Buzina","Farol em LED","Setas em LED","Retrovisores","32km/h de velocidade","40km de autonomia","03 níveis de velocidade","Suspensão hidráulica","Freio hidráulico","Conector USB","Sistema de ré","Até 3 passageiros: 2 adultos + 1 criança"],"desc":"O Mia Tri 1000W é um triciclo elétrico com mais estabilidade e espaço, indicado para quem busca conforto, capacidade de carga e segurança em trajetos urbanos.","gallery":["imagens/mia-tri-1000w1.png","imagens/mia-tri-1000w2.png","imagens/mia-tri-1000w3.png","imagens/mia-tri-1000w4.png","imagens/mia-tri-1000w5.png","imagens/mia-tri-1000w6.png","imagens/mia-tri-1000w7.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Mia%20Tri%201000W%20%28R%24%2012.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"ved-l-tio","name":"VED Lítio","cat":"triciclo","meta":"Triciclo Elétrico","img":"imagens/ved-l-tio1.png","alt":"VED Lítio","specs":["1000W","40km","Susp. hidr."],"old":"R$ 15.190","price":"R$ 13.999","price_num":13999,"old_num":15190,"rank":5,"details":["Bateria de lítio removível","Alarme de fábrica","Suporte de celular","Buzina","Farol em LED","Setas em LED","Retrovisores","32km/h de velocidade","40km de autonomia","03 níveis de velocidade","Suspensão hidráulica","Freio hidráulico","Conector USB","Sistema de ré","Aro 10"],"desc":"O VED Lítio é um triciclo elétrico com mais estabilidade e espaço, indicado para quem busca conforto, capacidade de carga e segurança em trajetos urbanos.","gallery":["imagens/ved-l-tio1.png","imagens/ved-l-tio2.png","imagens/ved-l-tio3.png","imagens/ved-l-tio4.png","imagens/ved-l-tio5.png","imagens/ved-l-tio6.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20VED%20L%C3%ADtio%20%28R%24%2013.999%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"joy-tri","name":"Joy Tri","cat":"triciclo","meta":"Triciclo Elétrico","img":"imagens/joy-tri1.avif","alt":"Joy Tri","specs":["600W","55km","3 lugares"],"old":"R$ 11.490","price":"R$ 9.990","price_num":9990,"old_num":11490,"rank":6,"details":["Alarme de fábrica","Até 03 lugares","Bateria de lítio 60v 20ah","Farol e setas em LED","Carga máxima de 150kg","Retrovisores","32km/h de velocidade","55km de autonomia","03 níveis de velocidade","Conector USB","Sistema de ré","Cesta dianteira e traseira"],"desc":"O Joy Tri é um triciclo elétrico com mais estabilidade e espaço, indicado para quem busca conforto, capacidade de carga e segurança em trajetos urbanos.","gallery":["imagens/joy-tri1.avif","imagens/joy-tri2.avif","imagens/joy-tri3.avif","imagens/joy-tri4.avif","imagens/joy-tri5.avif"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Joy%20Tri%20%28R%24%209.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"rufus-1000w","name":"Rufus 1000W","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/oferta-rufus.avif","alt":"Rufus 1000W","specs":["1000W","50km","150kg"],"old":"R$ 12.599","price":"R$ 10.990","price_num":10990,"old_num":12599,"rank":7,"details":["Motor 1000W","Bateria de lítio removível","Painel digital","Velocidade máxima 32km/h","Autonomia entre 40km e 50km por carga","Pisca alerta","Sistema de ré","Freios hidráulicos à disco","Suporta 150kg","Alarme de fábrica","Suporte para celular","Cartão NFC","Som Bluetooth","Carregador bivolt"],"desc":"A Rufus 1000W é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/oferta-rufus.avif","imagens/rufus-1000w2.avif","imagens/rufus-1000w3.avif","imagens/rufus-1000w4.avif","imagens/rufus-1000w5.avif","imagens/rufus-1000w6.avif"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Rufus%201000W%20%28R%24%2010.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"savage-1000w","name":"Savage 1000W","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/savage-1000w1.avif","alt":"Savage 1000W","specs":["1000W","NFC","Bluetooth"],"old":"R$ 12.599","price":"R$ 11.490","price_num":11490,"old_num":12599,"rank":8,"details":["Motor 1000W","Bateria de lítio removível","Painel digital","Velocidade máxima 32km/h","Autonomia entre 40km e 50km por carga","Pisca alerta","Sistema de ré","Freios hidráulicos à disco","Suporta 150kg","Alarme de fábrica","Suporte para celular","Cartão NFC","Som Bluetooth","Carregador bivolt"],"desc":"A Savage 1000W é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/savage-1000w1.avif","imagens/savage-1000w2.avif","imagens/savage-1000w3.avif","imagens/savage-1000w4.avif","imagens/savage-1000w5.avif","imagens/savage-1000w6.avif","imagens/savage-1000w7.avif"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Savage%201000W%20%28R%24%2011.490%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"rezet-1000w","name":"Rezet 1000W","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/rezet-1000w1.avif","alt":"Rezet 1000W","specs":["1000W","Baú","NFC"],"old":"R$ 12.599","price":"R$ 10.990","price_num":10990,"old_num":12599,"rank":9,"details":["Motor 1000W","Bateria de lítio removível","Painel digital","Velocidade máxima 32km/h","Autonomia entre 40km e 50km por carga","Pisca alerta","Sistema de ré","Freios hidráulicos à disco","Baú externo e interno","Suporta 150kg","Alarme de fábrica","Conector USB","Suporte para celular","Cartão NFC","Som Bluetooth","Carregador bivolt"],"desc":"A Rezet 1000W é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/rezet-1000w1.avif","imagens/rezet-1000w2.avif","imagens/rezet-1000w3.avif","imagens/rezet-1000w4.avif","imagens/rezet-1000w5.avif","imagens/rezet-1000w6.avif","imagens/rezet-1000w7.avif","imagens/rezet-1000w8.avif","imagens/rezet-1000w9.avif"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Rezet%201000W%20%28R%24%2010.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"stake-1000w","name":"Stake 1000W","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/stake-1000w1.avif","alt":"Stake 1000W","specs":["1000W","Baú duplo","NFC"],"old":"R$ 13.099","price":"R$ 11.490","price_num":11490,"old_num":13099,"rank":10,"details":["Motor 1000W","Bateria de lítio removível","Painel digital","Velocidade máxima 32km/h","Autonomia entre 40km e 50km por carga","Pisca alerta","Sistema de ré","Freios hidráulicos à disco","Baú externo e interno","Suporta 150kg","Alarme de fábrica","Conector USB","Suporte para celular","Cartão NFC","Som Bluetooth","Carregador bivolt"],"desc":"A Stake 1000W é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/stake-1000w1.avif","imagens/stake-1000w2.avif","imagens/stake-1000w3.avif","imagens/stake-1000w4.avif","imagens/stake-1000w5.avif","imagens/stake-1000w6.avif","imagens/stake-1000w7.avif","imagens/stake-1000w8.avif","imagens/stake-1000w9.avif","imagens/stake-1000w10.avif"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Stake%201000W%20%28R%24%2011.490%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"kasper-1000w","name":"Kasper 1000W","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/kasper-1000w1.png","alt":"Kasper 1000W","specs":["1000W","Baú","NFC"],"old":"R$ 13.099","price":"R$ 11.490","price_num":11490,"old_num":13099,"rank":11,"details":["Motor 1000W","Bateria de lítio removível","Painel digital","Velocidade máxima 32km/h","Autonomia entre 40km e 50km por carga","Pisca alerta","Sistema de ré","Freios hidráulicos à disco","Baú externo e interno","Suporta 150kg","Alarme de fábrica","Conector USB","Suporte para celular","Cartão NFC","Som Bluetooth","Carregador bivolt"],"desc":"A Kasper 1000W é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/kasper-1000w1.png","imagens/kasper-1000w2.png","imagens/kasper-1000w3.png","imagens/kasper-1000w4.png","imagens/kasper-1000w5.png","imagens/kasper-1000w6.png","imagens/kasper-1000w7.png","imagens/kasper-1000w8.png","imagens/kasper-1000w9.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Kasper%201000W%20%28R%24%2011.490%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"tazzo-1000w","name":"Tazzo 1000W","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/tazzo-1000w1.avif","alt":"Tazzo 1000W","specs":["1000W","Lítio","Oferta"],"old":"R$ 11.490","price":"R$ 10.990","price_num":10990,"old_num":11490,"rank":12,"details":["Motor 1000W","Bateria de lítio removível","Painel digital","Velocidade máxima 32km/h","Autonomia entre 40km e 50km por carga","Pisca alerta","Sistema de ré","Freios hidráulicos à disco","Baú externo e interno","Suporta 150kg","Alarme de fábrica","Conector USB","Suporte para celular","Cartão NFC","Som Bluetooth","Carregador bivolt"],"desc":"A Tazzo 1000W é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/tazzo-1000w1.avif","imagens/tazzo-1000w2.avif","imagens/tazzo-1000w3.avif","imagens/tazzo-1000w4.avif","imagens/tazzo-1000w5.avif","imagens/tazzo-1000w6.avif","imagens/tazzo-1000w7.avif","imagens/tazzo-1000w8.avif","imagens/tazzo-1000w9.avif"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Tazzo%201000W%20%28R%24%2010.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"sion","name":"Sion","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/sion1.png","alt":"Sion","specs":["1000W","40–50km","NFC"],"old":"R$ 11.699","price":"R$ 10.990","price_num":10990,"old_num":11699,"rank":13,"details":["Bateria de lítio removível 60v 24ah","Potência 1000W","Som Bluetooth","Sistema de ré","Suporte de peso 150kg","Freios hidráulicos à disco","Velocidade máxima 32km/h","Autonomia de 40 a 50km por carga","Baú traseiro","Carregador USB","Suporte de celular","Pisca alerta","Painel digital","Cartão NFC de aproximação","Amortecedor hidráulico dianteiro","Amortecedor traseiro","Alarme de fábrica","Modelo autopropelido: não precisa de CNH nem emplacamento","03 meses de garantia"],"desc":"A Sion é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/sion1.png","imagens/sion2.png","imagens/sion3.png","imagens/sion4.png","imagens/sion5.png","imagens/sion6.png","imagens/sion7.png","imagens/sion8.png","imagens/sion9.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Sion%20%28R%24%2010.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"vitra","name":"Vitra","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/vitra1.png","alt":"Vitra","specs":["1000W","40–50km","NFC"],"old":"R$ 11.990","price":"R$ 11.490","price_num":11490,"old_num":11990,"rank":14,"details":["Motor 1000W","Bateria de lítio 60V 20A removível","Velocidade máxima 32km/h","Autonomia entre 40km e 50km","Baú traseiro","Freio à disco","Alarme de fábrica","Cartão NFC","Sistema de ré","Suporta 150kg","Carregador bivolt"],"desc":"A Vitra é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/vitra1.png","imagens/vitra2.png","imagens/vitra3.png","imagens/vitra4.png","imagens/vitra5.png","imagens/vitra6.png","imagens/vitra7.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Vitra%20%28R%24%2011.490%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"apollo","name":"Apollo","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/apollo1.png","alt":"Apollo","specs":["1000W","40–50km","Baú"],"old":"R$ 9.900","price":"R$ 8.999","price_num":8999,"old_num":9900,"rank":15,"details":["Motor 1000W","Bateria de lítio 60V 20A removível","Velocidade máxima 32km/h","Autonomia entre 40km e 50km","Baú traseiro","Freio à disco","Alarme de fábrica","Cartão NFC","Sistema de ré","Suporta 150kg","Carregador bivolt"],"desc":"A Apollo é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/apollo1.png","imagens/apollo2.png","imagens/apollo3.png","imagens/apollo4.png","imagens/apollo5.png","imagens/apollo6.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Apollo%20%28R%24%208.999%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"skylo","name":"Skylo","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/skylo1.png","alt":"Skylo","specs":["1000W","40–50km","NFC"],"old":"R$ 11.499","price":"R$ 10.799","price_num":10799,"old_num":11499,"rank":16,"details":["Motor 1000W","Bateria de lítio 60V 20A removível","Velocidade máxima 32km/h","Autonomia entre 40km e 50km","Pisca alerta","Freio à disco","Alarme de fábrica","Cartão NFC","Suporta 150kg","Carregador bivolt"],"desc":"A Skylo é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/skylo1.png","imagens/skylo2.png","imagens/skylo3.png","imagens/skylo4.png","imagens/skylo5.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Skylo%20%28R%24%2010.799%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"giga-1000w","name":"Giga 1000W","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/giga-1000w1.png","alt":"Giga 1000W","specs":["1000W","NFC","150kg"],"old":"R$ 11.490","price":"R$ 10.990","price_num":10990,"old_num":11490,"rank":17,"details":["Motor 1000W","Bateria de lítio 60V 20A removível","Velocidade máxima 32km/h","Autonomia entre 40km e 50km","Pisca alerta","Freio à disco","Alarme de fábrica","Cartão NFC","Pulseira NFC","Suporta 150kg","Carregador bivolt"],"desc":"A Giga 1000W é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/giga-1000w1.png","imagens/giga-1000w2.png","imagens/giga-1000w3.png","imagens/giga-1000w4.png","imagens/giga-1000w5.png","imagens/giga-1000w6.png","imagens/giga-1000w7.png","imagens/giga-1000w8.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Giga%201000W%20%28R%24%2010.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"soma-1000w-l-tio","name":"Soma 1000W Lítio","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/soma-1000w-l-tio1.png","alt":"Soma 1000W Lítio","specs":["1000W","50km","Lítio"],"old":"R$ 11.690","price":"R$ 10.799","price_num":10799,"old_num":11690,"rank":18,"details":["Motor 1000W","Baú traseiro","Bateria de lítio 60V 20A removível","Velocidade máxima 32km/h","Autonomia de até 50km por carga","Carregamento de 5 a 6 horas","Carregador bivolt","Alarme de fábrica","Autopropelido","Suporta 150kg","Painel digital"],"desc":"A Soma 1000W Lítio é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/soma-1000w-l-tio1.png","imagens/soma-1000w-l-tio2.png","imagens/soma-1000w-l-tio3.png","imagens/soma-1000w-l-tio4.png","imagens/soma-1000w-l-tio5.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Soma%201000W%20L%C3%ADtio%20%28R%24%2010.799%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"ret-1000w-l-tio","name":"RET 1000W Lítio","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/ret-1000w-l-tio1.png","alt":"RET 1000W Lítio","specs":["1000W","50km","Cesta"],"old":"R$ 10.990","price":"R$ 9.990","price_num":9990,"old_num":10990,"rank":19,"details":["Motor 1000W","Cesta dianteira","Bateria de lítio 60V 20A removível","Velocidade máxima 32km/h","Autonomia de até 50km por carga","Carregamento de 5 a 6 horas","Carregador bivolt","Alarme de fábrica","Autopropelido","Suporta 150kg","Painel digital"],"desc":"A RET 1000W Lítio é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/ret-1000w-l-tio1.png","imagens/ret-1000w-l-tio2.png","imagens/ret-1000w-l-tio3.png","imagens/ret-1000w-l-tio4.png","imagens/ret-1000w-l-tio5.png","imagens/ret-1000w-l-tio6.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20RET%201000W%20L%C3%ADtio%20%28R%24%209.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"mia-mc","name":"Mia Mc","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/mia-mc1.png","alt":"Mia Mc","specs":["1000W","45km","Banco duplo"],"old":"R$ 11.690","price":"R$ 10.499","price_num":10499,"old_num":11690,"rank":20,"details":["Não precisa de CNH","Não precisa de emplacamento","Veículo autopropelido","Potência do motor 1000W","Bateria de lítio 20AH 60 Volts removível","Autonomia de até 45km","Velocidade máxima 32km/h","Carregador bivolt 110/220V","Buzina elétrica","Farol Full LED","Amortecedor duplo dianteiro","Suspensão traseira dupla","Freio a disco hidráulico","Marcha ré","Painel digital","Banco duplo com encosto","Alarme antirroubo com sirene e controle","Carregador turbo 5A","Pneu New City sem câmara","Rodas aro 10","Tempo de recarga de até 5 horas","Seletor com 3 velocidades","Setas dianteira e traseira","Luz de freio","Capacidade de peso 180kg"],"desc":"A Mia Mc é uma scooter elétrica com visual moderno, motor forte e recursos de conforto para deslocamentos urbanos no Rio de Janeiro.","gallery":["imagens/mia-mc1.png","imagens/mia-mc2.png","imagens/mia-mc3.png","imagens/mia-mc4.png","imagens/mia-mc5.png","imagens/mia-mc6.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Mia%20Mc%20%28R%24%2010.499%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"veloster","name":"Veloster - Bicicleta elétrica","cat":"bicicleta","meta":"Bicicleta Elétrica","img":"imagens/veloster1.avif","alt":"Veloster - Bicicleta elétrica","specs":["800W","30km","Aro 24"],"old":"R$ 6.199","price":"R$ 5.399","price_num":5399,"old_num":6199,"rank":21,"details":["Alarme de fábrica","Buzina","Farol em LED","Setas em LED","Retrovisores","Cesta","35km/h de velocidade","30km de autonomia","03 níveis de velocidade","Suspensão hidráulica","Suporte para celular","Conector USB","Sistema de ré","Aro 24","Motor 800W"],"desc":"A Veloster é uma bicicleta elétrica urbana com motor 800W, suspensão hidráulica, autonomia de aproximadamente 30km e recursos de conforto para o dia a dia.","gallery":["imagens/veloster1.avif","imagens/veloster2.avif","imagens/veloster3.avif","imagens/veloster4.avif","imagens/veloster5.avif"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Veloster%20-%20Bicicleta%20el%C3%A9trica%20%28R%24%205.399%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"x12-scooter-eletrica-1000w","name":"X12 Scooter elétrica 1000w","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/x12-scooter-eletrica-1000w1.png","alt":"X12 Scooter elétrica 1000w","specs":["1000W","até 80km","180kg"],"old":"R$ 11.490","price":"R$ 10.990","price_num":10990,"old_num":11490,"rank":22,"details":["Motor 1000W elétrico","Ano modelo 2024","Ângulo de escalada maior que 30 graus","Freio dianteiro a disco","Freio traseiro a disco","Velocidade máxima 32km/h","Bateria íon-lítio Lifepo4","Capacidade da bateria 60V 12AH","Pneus 225/40-10","Peso com bateria 40kg","Capacidade de carregamento 180kg","Alcance até 80km com bateria extra","Alarme com start-stop","Tempo de carga 5–6 horas","Bateria removível lítio 60V 20AH","Autonomia 40–60km","Assento duplo com encosto","Tela LCD","Iluminação em LED","Modo booster 2000W"],"desc":"A X12 Scooter elétrica 1000w é uma scooter urbana com motor 1000W, freios a disco, alarme com start-stop e autonomia ampliável com bateria adicional.","gallery":["imagens/x12-scooter-eletrica-1000w1.png","imagens/x12-scooter-eletrica-1000w2.png","imagens/x12-scooter-eletrica-1000w3.png","imagens/x12-scooter-eletrica-1000w4.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20X12%20Scooter%20el%C3%A9trica%201000w%20%28R%24%2010.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"x11-scooter-eletrica-1000w","name":"X11 Scooter elétrica 1000w","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/x11-scooter-eletrica-1000w1.png","alt":"X11 Scooter elétrica 1000w","specs":["1000W","40–60km","150kg"],"old":"R$ 9.490","price":"R$ 7.999","price_num":7999,"old_num":9490,"rank":23,"details":["Modelo Scooter Elétrica Autopropelida Winca","Motor 1000W elétrico","Ano modelo 2024","Ângulo de escalada maior que 30 graus","Freio dianteiro a disco","Freio traseiro a disco","Velocidade máxima 32km/h","Bateria íon-lítio Lifepo4","Capacidade da bateria 60V 12AH","Capacidade de carregamento 180kg","Alcance até 80km com bateria extra","Alarme com start-stop","Tempo de carga 5–6 horas","Carga máxima 150kg","Bateria removível lítio 60V 20AH","Autonomia 40–60km","Assento duplo com encosto","Tela LCD","Iluminação em LED","Modo booster 2000W"],"desc":"A X11 Scooter elétrica 1000w é uma scooter elétrica compacta e potente, com freios a disco, bateria de lítio removível e recursos de segurança para uso urbano.","gallery":["imagens/x11-scooter-eletrica-1000w1.png","imagens/x11-scooter-eletrica-1000w2.png","imagens/x11-scooter-eletrica-1000w3.png","imagens/x11-scooter-eletrica-1000w4.png","imagens/x11-scooter-eletrica-1000w5.png","imagens/x11-scooter-eletrica-1000w6.png","imagens/x11-scooter-eletrica-1000w7.png","imagens/x11-scooter-eletrica-1000w8.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20X11%20Scooter%20el%C3%A9trica%201000w%20%28R%24%207.999%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"scooter-jet-1000w","name":"Scooter Jet 1000w","cat":"scooter","meta":"Scooter Elétrica","img":"imagens/scooter-jet-1000w1.png","alt":"Scooter Jet 1000w","specs":["1000W","45km","200kg"],"old":"R$ 11.890","price":"R$ 10.990","price_num":10990,"old_num":11890,"rank":24,"details":["Não precisa de CNH","Não precisa de emplacamento","Veículo autopropelido","Motor 1000W","Bateria de lítio 20AH 60V removível","Autonomia de até 45km","Velocidade máxima 32km/h","Carregador bivolt 110/220V","Buzina elétrica","Farol Full LED","Amortecedor duplo dianteiro","Suspensão traseira dupla","Freio a disco hidráulico","Painel digital","Banco duplo com encosto","Alarme antirroubo com sirene e controle","Carregador turbo 5A","Rodas aro 10","Tempo de recarga até 5 horas","Capacidade de peso 200kg"],"desc":"A Scooter Jet 1000w é uma scooter elétrica autopropelida com bateria removível, banco duplo, baú traseiro e conjunto completo de iluminação e segurança.","gallery":["imagens/scooter-jet-1000w1.png","imagens/scooter-jet-1000w2.png","imagens/scooter-jet-1000w3.png","imagens/scooter-jet-1000w4.png","imagens/scooter-jet-1000w5.png","imagens/scooter-jet-1000w6.png","imagens/scooter-jet-1000w7.png","imagens/scooter-jet-1000w8.png","imagens/scooter-jet-1000w9.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Scooter%20Jet%201000w%20%28R%24%2010.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"lupy","name":"Triciclo elétrico Lupy","cat":"triciclo","meta":"Triciclo Elétrico","img":"imagens/lupy1.png","alt":"Triciclo elétrico Lupy","specs":["35km/h","30km","3 lugares"],"old":"R$ 13.690","price":"R$ 11.499","price_num":11499,"old_num":13690,"rank":25,"details":["Alarme de fábrica","Até 03 lugares","Buzina","Farol em LED","Setas em LED","Retrovisores","Baú dianteiro","Cesta dianteira","Cesta traseira","35km/h de velocidade","30km de autonomia","03 níveis de velocidade","Suspensão hidráulica","Freio hidráulico","Suporte para celular","Conector USB","Sistema de ré","Aro 10"],"desc":"O Triciclo elétrico Lupy tem até 3 lugares, baú, cestas e estrutura voltada para conforto, estabilidade e uso urbano.","gallery":["imagens/lupy1.png","imagens/lupy2.png","imagens/lupy3.png","imagens/lupy4.png","imagens/lupy5.png","imagens/lupy6.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Triciclo%20el%C3%A9trico%20Lupy%20%28R%24%2011.499%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"duos-fox","name":"Triciclo elétrico Duos Fox","cat":"triciclo","meta":"Triciclo Elétrico","img":"imagens/duos-fox1.png","alt":"Triciclo elétrico Duos Fox","specs":["800W","30km","Aro 20"],"old":"R$ 7.899","price":"R$ 6.999","price_num":6999,"old_num":7899,"rank":26,"details":["Alarme de fábrica","Buzina","Farol em LED","Retrovisores","Cesta","Baú traseiro","35km/h de velocidade","30km de autonomia","03 níveis de velocidade","Sistema de ré","Aro 20"],"desc":"O Triciclo elétrico Duos Fox é um triciclo com cesta, baú traseiro e boa estabilidade para trajetos urbanos curtos.","gallery":["imagens/duos-fox1.png","imagens/duos-fox2.png","imagens/duos-fox3.png","imagens/duos-fox4.png","imagens/duos-fox5.png","imagens/duos-fox6.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Triciclo%20el%C3%A9trico%20Duos%20Fox%20%28R%24%206.999%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"},{"id":"alpha","name":"Triciclo elétrico Alpha","cat":"triciclo","meta":"Triciclo Elétrico","img":"imagens/alpha1.png","alt":"Triciclo elétrico Alpha","specs":["35km/h","30km","Aro 10"],"old":"R$ 13.690","price":"R$ 12.990","price_num":12990,"old_num":13690,"rank":27,"details":["Alarme de fábrica","Buzina","Farol em LED","Setas em LED","Retrovisores","35km/h de velocidade","30km de autonomia","03 níveis de velocidade","Suspensão hidráulica","Freio hidráulico","Conector USB","Sistema de ré","Aro 10"],"desc":"O Triciclo elétrico Alpha tem suspensão hidráulica, freio hidráulico, sistema de ré e recursos de segurança para o uso diário.","gallery":["imagens/alpha1.png","imagens/alpha2.png","imagens/alpha3.png","imagens/alpha4.png"],"whatsapp":"https://wa.me/5521972549545?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20produto%20Triciclo%20el%C3%A9trico%20Alpha%20%28R%24%2012.990%29.%20Pode%20me%20passar%20mais%20detalhes%20e%20formas%20de%20pagamento%3F"}];
+  PRODUCTS.forEach(p => { p.best_seller = p.rank <= 6; });
+  let currentFilter = 'all';
+  let currentSort = 'recommended';
+
+  const productGrid = document.getElementById('productGrid');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const sortDropdown = document.getElementById('sortDropdown');
+  const sortToggle = document.getElementById('sortToggle');
+  const sortLabel = document.getElementById('sortLabel');
+  const clearFiltersBtn = document.getElementById('clearFilters');
+  const sortOptions = document.querySelectorAll('.sort-option');
+  const categoryCards = document.querySelectorAll('.cat-card[data-category-filter]');
+
+  function productCardTemplate(p) {
+    return `
+      <a href="#produto-${p.id}" class="prod-card product-open" data-product-id="${p.id}" data-cat="${p.cat}" data-price="${p.price_num}" data-rank="${p.rank}">
+        <span class="prod-badge">${p.best_seller ? 'MAIS VENDIDO' : 'OFERTA'}</span>
+        <div class="prod-image"><img src="${p.img}" alt="${p.alt}" loading="lazy"></div>
+        <div class="prod-body">
+          <span class="prod-meta">${p.meta}</span>
+          <h3 class="prod-name">${p.name}</h3>
+          <div class="prod-specs">${p.specs.map(s => `<span class="prod-spec">${s}</span>`).join('')}</div>
+          <div class="prod-price-row">
+            <div><div class="prod-price-old">${p.old}</div><div class="prod-price-new">${p.price}</div></div>
+            <div class="prod-cta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </a>`;
+  }
+
+  function renderProducts() {
+    let list = PRODUCTS.filter(p => currentFilter === 'all' || p.cat === currentFilter);
+
+    // "Mais vendidos" mostra somente os modelos marcados como mais vendidos.
+    // Como a loja não exibe uma tag pública de vendas, usamos a ordem recomendada do catálogo atual da Supra Bike
+    // e destacamos os primeiros modelos como mais vendidos.
+    if (currentSort === 'best-sellers') {
+      list = list.filter(p => p.best_seller);
+    }
+
+    list = [...list].sort((a,b) => {
+      if (currentSort === 'price-asc') return a.price_num - b.price_num;
+      if (currentSort === 'price-desc') return b.price_num - a.price_num;
+      return a.rank - b.rank;
+    });
+
+    productGrid.innerHTML = list.map(productCardTemplate).join('');
+    bindProductOpeners(productGrid);
+    updateClearFilterState();
+  }
+
+  function bindProductOpeners(scope=document) {
+    scope.querySelectorAll('.product-open, .prod-card').forEach(el => {
+      el.addEventListener('click', (e) => {
+        const id = el.dataset.productId;
+        if (!id) return;
+        e.preventDefault();
+        openProduct(id);
+      });
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      renderProducts();
+    });
+  });
+
+
+  categoryCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const selected = card.dataset.categoryFilter;
+      currentFilter = selected || 'all';
+      filterBtns.forEach(b => {
+        b.classList.toggle('active', b.dataset.filter === currentFilter);
+      });
+      renderProducts();
+      document.getElementById('produtos').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  function closeSortMenu() {
+    sortDropdown.classList.remove('open');
+    sortToggle.setAttribute('aria-expanded', 'false');
+    updateClearFilterState();
+  }
+
+  function updateClearFilterState() {
+    const hasActiveFilter = currentFilter !== 'all' || currentSort !== 'recommended' || sortDropdown.classList.contains('open');
+    sortDropdown.classList.toggle('has-active-filter', hasActiveFilter);
+  }
+
+  sortToggle.addEventListener('click', () => {
+    const isOpen = sortDropdown.classList.toggle('open');
+    sortToggle.setAttribute('aria-expanded', String(isOpen));
+    updateClearFilterState();
+  });
+
+  sortOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      sortOptions.forEach(item => item.classList.remove('active'));
+      option.classList.add('active');
+      currentSort = option.dataset.sort;
+      sortLabel.textContent = option.textContent;
+      closeSortMenu();
+      renderProducts();
+    });
+  });
+
+  clearFiltersBtn.addEventListener('click', () => {
+    currentFilter = 'all';
+    currentSort = 'recommended';
+    sortLabel.textContent = 'Ordenar por';
+    filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+    sortOptions.forEach(item => item.classList.remove('active'));
+    closeSortMenu();
+    renderProducts();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!sortDropdown.contains(event.target)) closeSortMenu();
+  });
+
+  function openProduct(id) {
+    const p = PRODUCTS.find(item => item.id === id);
+    if (!p) return;
+    const detail = document.getElementById('produto-detalhe');
+    detail.hidden = false;
+    document.getElementById('detailCategory').textContent = p.meta;
+    document.getElementById('detailTitle').textContent = p.name;
+    document.getElementById('detailDesc').textContent = p.desc;
+    document.getElementById('detailOld').textContent = p.old;
+    document.getElementById('detailPrice').textContent = p.price;
+    document.getElementById('detailWhatsapp').href = p.whatsapp;
+    const mainImg = document.getElementById('detailMainImg');
+    mainImg.src = p.gallery[0];
+    mainImg.alt = p.name;
+    document.getElementById('detailSpecs').innerHTML = p.details.map(s => `<li>${s}</li>`).join('');
+    document.getElementById('detailThumbs').innerHTML = p.gallery.map((img, i) => `<button class="detail-thumb ${i===0?'active':''}" type="button" data-img="${img}"><img src="${img}" alt="${p.name} foto ${i+1}"></button>`).join('');
+    document.querySelectorAll('.detail-thumb').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.detail-thumb').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        mainImg.src = btn.dataset.img;
+      });
+    });
+    const related = PRODUCTS.filter(item => item.cat === p.cat && item.id !== p.id).slice(0,4);
+    document.getElementById('relatedGrid').innerHTML = related.map(r => `
+      <a class="related-card product-open" href="#produto-${r.id}" data-product-id="${r.id}">
+        <img src="${r.img}" alt="${r.name}" loading="lazy">
+        <div>${r.name}<span>${r.price}</span></div>
+      </a>`).join('');
+    bindProductOpeners(document.getElementById('relatedGrid'));
+    history.replaceState(null, '', `#produto-${p.id}`);
+    detail.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  document.getElementById('detailBack').addEventListener('click', () => {
+    document.getElementById('produtos').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  // Smooth scroll para links internos normais
+  document.querySelectorAll('a[href^="#"]:not(.product-open):not(.prod-card):not(.related-card)').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Animate cards on scroll
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.cat-card, .feat-card, .serv-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = `opacity 0.6s ease ${i * 0.05}s, transform 0.6s ease ${i * 0.05}s`;
+    observer.observe(el);
+  });
+
+  renderProducts();
+  bindProductOpeners(document);
+  if (location.hash.startsWith('#produto-')) {
+    const id = location.hash.replace('#produto-', '');
+    setTimeout(() => openProduct(id), 300);
+  }
+
+  // ===== MENU HAMBÚRGUER MOBILE =====
+  const menuToggle = document.getElementById('menuToggle');
+  const navMobile = document.getElementById('navMobile');
+  const navOverlay = document.getElementById('navOverlay');
+
+  function toggleMenu() {
+    menuToggle.classList.toggle('active');
+    navMobile.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+  }
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
+    // Fecha menu ao clicar em qualquer link
+    navMobile.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (navMobile.classList.contains('active')) toggleMenu();
+      });
+    });
+  }
+
+  // ===== FADE-IN DAS IMAGENS QUANDO CARREGAM =====
+  document.querySelectorAll('img').forEach(img => {
+    if (img.complete && img.naturalHeight !== 0) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load', () => img.classList.add('loaded'));
+      img.addEventListener('error', () => img.classList.add('loaded'));
+    }
+  });
+</script>
+</body>
+</html>
